@@ -161,7 +161,7 @@ deploy_backend_solution() {
     fi
 
     # Create IAM Role (if not exists)
-    ROLE_NAME="${PROJECT_NAME}-codebuild-service-role"
+    ROLE_NAME="pdfremediation-20250925221722-codebuild-service-role"
 
     print_status "🔐 Setting up IAM role for CodeBuild..."
     if aws iam get-role --role-name "$ROLE_NAME" >/dev/null 2>&1; then
@@ -420,13 +420,13 @@ EOF
         BUILD_IMAGE="aws/codebuild/amazonlinux-x86_64-standard:5.0"
         COMPUTE_TYPE="BUILD_GENERAL1_SMALL"
         PRIVILEGED_MODE="false"
-        SOURCE_VERSION="pdf2html-subtree"  # Use pdf2html-subtree since buildspec only exists there
+        SOURCE_VERSION="test-deploy-be0"  # Use pdf2html-subtree since buildspec only exists there
         BUILDSPEC_FILE="buildspec-unified.yml"
     else
         BUILD_IMAGE="aws/codebuild/amazonlinux2-x86_64-standard:5.0"
         COMPUTE_TYPE="BUILD_GENERAL1_LARGE"
         PRIVILEGED_MODE="true"
-        SOURCE_VERSION="pdf2html-subtree"
+        SOURCE_VERSION="test-deploy-be0"
         BUILDSPEC_FILE="buildspec-unified.yml"
     fi
 
@@ -861,7 +861,7 @@ print_success "✅ AWS credentials verified. Account: $ACCOUNT_ID, Region: $REGI
 echo ""
 
 # GitHub repository URL (hardcoded)
-GITHUB_URL="https://github.com/ASUCICREPO/PDF_Accessibility.git"
+GITHUB_URL="https://github.com/hazamy-gmu2/pdf2html_repo1.git"
 print_success "   Repository: $GITHUB_URL ✅"
 echo ""
 
