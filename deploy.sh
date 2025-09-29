@@ -161,7 +161,7 @@ deploy_backend_solution() {
     fi
 
     # Create IAM Role (if not exists)
-    ROLE_NAME="pdfremediation-20250925221722-codebuild-service-role"
+    ROLE_NAME="${PROJECT_NAME}-codebuild-service-role"
 
     print_status "🔐 Setting up IAM role for CodeBuild..."
     if aws iam get-role --role-name "$ROLE_NAME" >/dev/null 2>&1; then
