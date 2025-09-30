@@ -420,13 +420,13 @@ EOF
         BUILD_IMAGE="aws/codebuild/amazonlinux-x86_64-standard:5.0"
         COMPUTE_TYPE="BUILD_GENERAL1_SMALL"
         PRIVILEGED_MODE="false"
-        SOURCE_VERSION="test-deployment-1"  # Use pdf2html-subtree since buildspec only exists there
+        SOURCE_VERSION="pdf2html-subtree"  # Use pdf2html-subtree since buildspec only exists there
         BUILDSPEC_FILE="buildspec-unified.yml"
     else
         BUILD_IMAGE="aws/codebuild/amazonlinux2-x86_64-standard:5.0"
         COMPUTE_TYPE="BUILD_GENERAL1_LARGE"
         PRIVILEGED_MODE="true"
-        SOURCE_VERSION="test-deployment-1"
+        SOURCE_VERSION="pdf2html-subtree"
         BUILDSPEC_FILE="buildspec-unified.yml"
     fi
 
@@ -861,7 +861,7 @@ print_success "✅ AWS credentials verified. Account: $ACCOUNT_ID, Region: $REGI
 echo ""
 
 # GitHub repository URL (hardcoded)
-GITHUB_URL="https://github.com/hazamy-gmu2/pdf2html_repo1.git"
+GITHUB_URL="https://github.com/ASUCICREPO/PDF_Accessibility.git"
 print_success "   Repository: $GITHUB_URL ✅"
 echo ""
 
