@@ -39,7 +39,7 @@ class BedrockClient:
 
     def __init__(
         self,
-        model_id: str = "us.amazon.nova-lite-v1:0",
+        model_id: str = "amazon.nova-lite-v1:0",
         profile: Optional[str] = None,
     ):
         """
