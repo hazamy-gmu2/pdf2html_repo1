@@ -41,6 +41,7 @@ class BedrockClient:
         self,
         model_id: str = "amazon.nova-lite-v1:0",
         profile: Optional[str] = None,
+        region: str = "us-east-1",
     ):
         """
         Initialize the Bedrock client.
@@ -56,17 +57,17 @@ class BedrockClient:
             if profile:
                 try:
                     # Try to create a session with the provided profile
-                    session = boto3.Session(profile_name=profile)
+                    session = boto3.Session(profile_name=profile, region_name=region)
                     logger.debug(f"Using AWS profile: {profile}")
                 except Exception as profile_error:
                     # If profile doesn't exist or other error, try default credentials
                     logger.warning(
                         f"Couldn't use AWS profile '{profile}', falling back to default credentials: {profile_error}"
                     )
-                    session = boto3.Session()
+                    session = boto3.Session(region_name=region)
             else:
                 # No profile specified, use default credentials
-                session = boto3.Session()
+                session = boto3.Session(region_name=region)
 
             self.client = session.client("bedrock-runtime")
             logger.debug(
