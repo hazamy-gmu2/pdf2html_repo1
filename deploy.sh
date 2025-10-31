@@ -862,7 +862,8 @@ print_success "✅ AWS credentials verified. Account: $ACCOUNT_ID, Region: $REGI
 echo ""
 
 # GitHub repository URL (hardcoded)
-GITHUB_URL= "https://github.com/hazamy-gmu2/pdf2html_repo1.git" # "https://github.com/ASUCICREPO/PDF_Accessibility.git"
+GITHUB_URL= "https://github.com/hazamy-gmu2/pdf2html_repo1.git" 
+# "https://github.com/ASUCICREPO/PDF_Accessibility.git"
 print_success "   Repository: $GITHUB_URL ✅"
 echo ""
 
