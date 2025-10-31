@@ -1,6 +1,6 @@
 # 1. Start FROM the AWS Lambda Python 3.11 base image
-FROM public.ecr.aws/lambda/python:3.11
-
+# FROM public.ecr.aws/lambda/python:3.11
+FROM public.ecr.aws/docker/library/python:3.10-slim-buster
 # 2. Set working directory inside the container
 #    Lambda will look here for your handler file by default.
 WORKDIR /var/task
