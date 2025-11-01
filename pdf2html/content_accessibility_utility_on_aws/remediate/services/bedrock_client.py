@@ -52,6 +52,7 @@ class BedrockClient:
         """
         self.model_id = model_id
         self.profile = profile
+        self.region = region
         try:
             # Create a boto3 session with the provided profile
             if profile:
@@ -71,7 +72,7 @@ class BedrockClient:
 
             self.client = session.client("bedrock-runtime")
             logger.debug(
-                f"Initialized Bedrock client with model: {model_id}, profile: {profile}"
+                f"Initialized Bedrock client with model: {model_id}, profile: {profile}, region: {region}"
             )
         except Exception as e:
             logger.warning(f"Failed to initialize Bedrock client: {e}")
@@ -157,7 +158,7 @@ class BedrockClient:
         except Exception as e:
             logger.warning(f"Error generating text with Bedrock: {e}")
             raise AltTextGenerationError(
-                f"Failed to generate text with Bedrock: {str(e)}"
+                f"model {model_id}, region {region} | Failed to generate text with Bedrock: {str(e)}"
             )
 
     def generate_alt_text_for_image(
