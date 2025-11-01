@@ -97,7 +97,7 @@ class RemediationManager:
         if not self.options.get("disable_ai", False):
             try:
                 model_id = self.options.get(
-                    "model_id", "us.amazon.nova-lite-v1:0"
+                    "model_id", "amazon.nova-lite-v1:0"
                 )
                 profile = self.options.get("profile")
                 self.bedrock_client = BedrockClient(model_id=model_id, profile=profile, region="us-east-1")
@@ -203,7 +203,7 @@ class RemediationManager:
                             )
 
                             model_id = self.options.get(
-                                "model_id", "us.amazon.nova-lite-v1:0"
+                                "model_id", "amazon.nova-lite-v1:0"
                             )
                             profile = self.options.get("profile")
                             client_to_use = BedrockClient(
@@ -257,7 +257,7 @@ class RemediationManager:
                     )
 
                     model_id = self.options.get(
-                        "model_id", "us.amazon.nova-lite-v1:0"
+                        "model_id", "amazon.nova-lite-v1:0"
                     )
                     profile = self.options.get("profile")
 
