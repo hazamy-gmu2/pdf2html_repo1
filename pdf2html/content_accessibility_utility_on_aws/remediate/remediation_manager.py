@@ -100,7 +100,7 @@ class RemediationManager:
                     "model_id", "us.amazon.nova-lite-v1:0"
                 )
                 profile = self.options.get("profile")
-                self.bedrock_client = BedrockClient(model_id=model_id, profile=profile)
+                self.bedrock_client = BedrockClient(model_id=model_id, profile=profile, region="us-east-1")
                 logger.debug(
                     f"Initialized Bedrock client with model: {model_id}, profile: {profile}"
                 )
@@ -207,7 +207,7 @@ class RemediationManager:
                             )
                             profile = self.options.get("profile")
                             client_to_use = BedrockClient(
-                                model_id=model_id, profile=profile
+                                model_id=model_id, profile=profile, region="us-east-1"
                             )
                             logger.debug(
                                 f"Successfully created BedrockClient for table remediation: {issue_type}"
@@ -266,7 +266,7 @@ class RemediationManager:
                             f"Creating BedrockClient with profile {profile} for {issue_type}"
                         )
                         try:
-                            client = BedrockClient(model_id=model_id, profile=profile)
+                            client = BedrockClient(model_id=model_id, profile=profile, region="us-east-1")
                             # Try remediation again with the new client
                             logger.debug(f"Retrying {issue_type} with new client")
                             result = self.remediation_strategies[issue_type](
