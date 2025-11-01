@@ -39,7 +39,7 @@ class BedrockClient:
 
     def __init__(
         self,
-        model_id: str = "anthropic.claude-3-haiku-20240307-v1:0" #"amazon.nova-lite-v1:0",
+        model_id: str = "amazon.nova-lite-v1:0", #"anthropic.claude-3-haiku-20240307-v1:0"
         profile: Optional[str] = None,
         region: str = "us-east-1",
     ):
