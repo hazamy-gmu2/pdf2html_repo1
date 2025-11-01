@@ -156,7 +156,7 @@ class BedrockClient:
                 raise AltTextGenerationError("No content in Bedrock response")
 
         except Exception as e:
-            logger.warning(f"Error generating text with Bedrock: {e}")
+            logger.warning(f"Error generating text with Bedrock model = {model_id}, region = {region} : error = {e}")
             raise AltTextGenerationError(
                 f"model {model_id}, region {region} | Failed to generate text with Bedrock: {str(e)}"
             )
